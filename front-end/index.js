@@ -25,7 +25,7 @@ require(['vs/editor/editor.main'], function () {
 });
 
 
-
+const domain = 'https://code-converter-ndz9.vercel.app/';
 
 
 
@@ -34,7 +34,7 @@ function handleConvert() {
     console.log(editor_Code);
     console.log(choose_lang.value);
 
-    requestForResult('https://code-converter-mrkishansharma.vercel.app/converter');
+    requestForResult(`${domain}/converter`);
     
 }
 
@@ -42,13 +42,13 @@ function handleConvert() {
 // onclick
 function handleDebug() {
     
-    requestForResult('https://code-converter-mrkishansharma.vercel.app/debug');
+    requestForResult(`${domain}/debug`);
 }
 
 // onclick
 function handlePerformace() {
     
-    requestForResult('https://code-converter-mrkishansharma.vercel.app/performance');
+    requestForResult(`${domain}/performance`);
 }
 
 
@@ -57,7 +57,7 @@ function handlePerformace() {
 
 
 
-async function requestForResult(URL='https://code-converter-mrkishansharma.vercel.app/converter') {
+async function requestForResult(URL=`${domain}/converter`) {
 
     response_box.innerText = 'Loading.....';
 
