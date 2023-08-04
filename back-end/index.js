@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 const express = require('express');
@@ -8,17 +7,14 @@ const cors = require('cors');
 // Set your OpenAI API key
 const apiKey = process.env.OPEN_AI_API_KEY;
 
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-
 app.get('/', (req, res) => {
     res.status(200).send('Welcome To Open AI');
 })
-
 
 app.post('/converter', async (req, res) => {
 
@@ -38,6 +34,7 @@ app.post('/converter', async (req, res) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`,
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({
                 prompt,
@@ -81,6 +78,7 @@ app.post('/debug', async (req, res) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`,
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({
                 prompt,
@@ -124,6 +122,7 @@ app.post('/performance', async (req, res) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`,
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({
                 prompt,
@@ -152,8 +151,6 @@ app.post('/performance', async (req, res) => {
     }
 
 })
-
-
 
 app.listen(3000, () => {
     console.log('server is running');
