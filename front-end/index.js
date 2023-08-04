@@ -25,7 +25,7 @@ require(['vs/editor/editor.main'], function () {
 });
 
 
-const domain = 'https://code-converter-ndz9.vercel.app/';
+const domain = 'https://code-converter-ndz9.vercel.app';
 
 
 
