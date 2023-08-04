@@ -18,9 +18,11 @@ app.get('/', (req, res) => {
 
 async function getResponse(prompt) {
     
+    let response;
+
     try {
 
-        const response = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', {
+        response = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,19 +35,18 @@ async function getResponse(prompt) {
             }),
         });
 
-        const responseData = await response.json();
-        const generatedCode = responseData.choices[0].text.trim();
+        response = await response.json();
+        console.log(response);
 
-        console.log(`generatedCode `, generatedCode);
+        response = response.choices[0].text.trim();
+        console.log(response);
 
-        return generatedCode;
-
-
+        return response;
     } 
     catch (error) {
 
         console.error('Error converting code:', error);
-        return error;
+        return 'Error converting code:'+ error + 'Response: ' + response;
     }
 }
 
