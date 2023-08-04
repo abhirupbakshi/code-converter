@@ -15,7 +15,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.status(200).send('Welcome To Open AI');
 })
-
+ 
 async function getResponse(prompt) {
     
     let response;
